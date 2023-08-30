@@ -189,8 +189,9 @@ double calculate()
 }
 void print(double ans)
 {
-    int temp=ans;
-    if(ans==temp)
-    cout<<"=>"<<temp;
+    if(ans>=1e10||ans<=1e-10)
+    cout<<fixed<<scientific<<setprecision(3)<<"=>"<<ans;
+    else if(ans==static_cast<int>(ans))
+    cout<<"=>"<<ans;
     else cout<<fixed<<setprecision(5)<<"=>"<<ans;
 }
