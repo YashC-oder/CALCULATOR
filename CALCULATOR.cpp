@@ -138,6 +138,9 @@ double calculate()
             }
             else if(ch=='*')
             {
+                a+=A;
+                while(ch=='*')
+                {
                 b=getnum();
                 if(b==0)
                 {
@@ -145,9 +148,14 @@ double calculate()
                     else b=0;
                 }
                 a*=b;
+                }
+                return a;
             }
             else if(ch=='/')
             {
+                a+=A;
+                while(ch=='/')
+                {
                 b=getnum();
                 if(b==0)
                 {
@@ -155,6 +163,13 @@ double calculate()
                     else b=0;
                 }
                 a/=b;
+                }
+                return a;
+            }
+            else if(ch=='(')
+            {
+                a+=A;
+                continue;
             }
             return a+A;
             
