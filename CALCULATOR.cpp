@@ -62,8 +62,7 @@ double calculate()
             b=getnum();
             if(b==0)
             {
-                if(ch=='(')
-                b=calculate();
+                if(ch=='(') b=calculate();
             }
             else if(ch!='+')
             {
@@ -78,8 +77,7 @@ double calculate()
             b=getnum();
             if(b==0)
             {
-               if(ch=='(')
-               b=calculate();
+               if(ch=='(') b=calculate();
             }
             else if(ch!='-')
             {
@@ -94,13 +92,15 @@ double calculate()
             b=getnum();
             if(b==0)
             {
-                if(ch=='(')
-                b=calculate();
+                if(ch=='(') b=calculate();
             }
             if(ch=='^')
             {
             c=getnum();
-            if(c==0) c=calculate();
+            if(c==0)
+            {
+                if(ch=='(') c=calculate();
+            }
             b=pow(b,c);
             }
             a*=b;
@@ -110,13 +110,15 @@ double calculate()
             b=getnum();
             if(b==0)
             {
-                if(ch=='(')
-                b=calculate();
+                if(ch=='(') b=calculate();
             }
             if(ch=='^')
             {
             c=getnum();
-            if(c==0) c=calculate();
+            if(c==0) 
+            {
+                if(ch=='(') c=calculate();
+            }
             b=pow(b,c);
             } 
             a/=b;
@@ -132,7 +134,10 @@ double calculate()
             if(ch=='^')
             {
                 b=getnum();
-                if(b==0) b=calculate();
+                if(b==0)
+                {
+                    if(ch=='(') b=calculate();
+                }
                 a=pow(a+A,b);
                 return a;
             }
@@ -145,7 +150,6 @@ double calculate()
                 if(b==0)
                 {
                     if(ch=='(') b=calculate();
-                    else b=0;
                 }
                 a*=b;
                 }
@@ -160,7 +164,6 @@ double calculate()
                 if(b==0)
                 {
                     if(ch=='(') b=calculate();
-                    else b=0;
                 }
                 a/=b;
                 }
@@ -177,9 +180,7 @@ double calculate()
             b=getnum();
             if(b==0)
             {
-                if(ch=='(')
-                b=calculate();
-                else b=0;
+                if(ch=='(') b=calculate();
             }
             a=pow(a,b);
             continue;
